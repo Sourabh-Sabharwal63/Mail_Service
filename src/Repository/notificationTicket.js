@@ -45,6 +45,19 @@ class NotificationTicketRepository {
       throw error;
     }
   }
+  async updateNotificationTicket(ticketId,data){
+  try {
+    const Ticket=await NotificationTicket.update(data,{
+      where:{
+        id:ticketId
+      }
+    });
+    return Ticket;
+  } catch (error) {
+    console.log("something went wrong on Repository Level in update");
+    throw error;
+  }
+  }
 }
 
 module.exports=NotificationTicketRepository;
